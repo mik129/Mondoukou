@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mondoukou Resort**** | Grand Bassam, Mondoukou - Site Officiel</title>
+  <style>
+    :root {
+      --primary: #004e7c;
+      --primary-dark: #003554;
+      --accent: #c59b27;
+      --accent-hover: #a9821d;
+      --bg-light: #f8f9fa;
+      --bg-sand: #f4f1ea;
+      --text-dark: #1f2933;
+      --text-muted: #52606d;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--primary-dark);
+      color: var(--white);
+      font-size: 0.82rem;
+      padding: 8px 0;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-bar-items {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 1320px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-logo-img {
+      height: 54px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav.desktop-nav ul {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav.desktop-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 8px 4px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a.active {
+      color: var(--primary);
+    }
+
+    nav.desktop-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    nav.desktop-nav a:hover::after,
+    nav.desktop-nav a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-cta {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 11px 18px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-cta:hover {
+      background: var(--accent-hover);
+    }
+
+    .lang-switch {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: none;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .lang-switch button.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      font-size: 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* MOBILE DRAWER */
+    .mobile-menu {
+      display: none;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 20px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-menu a {
+      font-weight: 600;
+      font-size: 1rem;
+      display: block;
+      padding: 6px 0;
+    }
+
+    /* HERO CAROUSEL */
+    .hero {
+      position: relative;
+      height: 76vh;
+      min-height: 480px;
+      max-height: 740px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #003554 0%, #005b8f 50%, #16697a 100%);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 25, 45, 0.45), rgba(0, 25, 45, 0.65));
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 0 20px;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      background: rgba(197, 155, 39, 0.92);
+      color: var(--white);
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+
+    .slide-content h2 {
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .slide-content p {
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      opacity: 0.95;
+    }
+
+    .hero-controls {
+      position: absolute;
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    /* BOOKING WIDGET */
+    .booking-wrapper {
+      position: relative;
+      z-index: 20;
+      margin-top: -48px;
+      padding: 0 20px;
+    }
+
+    .booking-bar {
+      max-width: 1160px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.14);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      border-top: 4px solid var(--accent);
+    }
+
+    .booking-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .booking-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+
+    .booking-field input,
+    .booking-field select {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: var(--bg-light);
+    }
+
+    .booking-submit {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      height: 42px;
+      transition: var(--transition);
+    }
+
+    .booking-submit:hover {
+      background: var(--primary-dark);
+    }
+
+    /* SECTIONS GENERAL */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    .section-subtitle {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.82rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2,
+    .section-header h3 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    /* INTRO & GUARANTEES */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .intro-text h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .intro-text p {
+      margin-bottom: 14px;
+      color: var(--text-muted);
+    }
+
+    .guarantees-card {
+      background: var(--bg-sand);
+      padding: 32px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .guarantees-card h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .guarantee-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .guarantee-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ROOMS GRID */
+    .bg-alt {
+      background: var(--bg-light);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body h4 {
+      font-size: 1.22rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 14px;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 18px;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.86rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* OFFERS */
+    .offer-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .offer-img {
+      min-height: 250px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .offer-price-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 6px;
+    }
+
+    .offer-price-tag small {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .offer-price-tag strong {
+      font-size: 1.4rem;
+    }
+
+    .offer-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .offer-content h4 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .offer-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      height: 220px;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      inset-inline: 0;
+      padding: 12px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* LOCATION & CONTACT */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .info-box {
+      background: var(--bg-light);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .info-box h3 {
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .contact-list li {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text-dark);
+    }
+
+    .contact-list li span.icon {
+      font-size: 1.2rem;
+      color: var(--primary);
+      min-width: 24px;
+    }
+
+    .contact-list a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--primary);
+      color: var(--white);
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    .newsletter h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .newsletter p {
+      opacity: 0.9;
+      margin-bottom: 22px;
+    }
+
+    .newsletter-form {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b2a;
+      color: #cbd5e1;
+      padding: 56px 0 24px;
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-logo {
+      height: 58px;
+      width: auto;
+      background: var(--white);
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand h4 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-links h5 {
+      color: var(--white);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      max-width: 500px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav.desktop-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .booking-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .intro-grid,
+      .split-section,
+      .offer-card {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .booking-bar {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-items">
+        <span>✔ Meilleur tarif garanti</span>
+        <span>✔ Réservation directe sans intermédiaire</span>
+        <span>✔ Réception 0701777701 | Commercial 0711111190</span>
+      </div>
+      <div>
+        <span>Grand Bassam, Mondoukou • ★★★★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-main">
+      <a href="#accueil" class="brand">
+        <img src="img/Capture d'écran 2026-11-19 103046.png" alt="Logo Mondoukou Resort" class="brand-logo-img" />
+        <div class="brand-text">
+          <h1>Mondoukou Resort</h1>
+          <span>Site Officiel • 4 Étoiles</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#gastronomie" data-i18n="nav_gastronomy">Gastronomie</a></li>
+          <li><a href="#chambres" data-i18n="nav_rooms">Chambres</a></li>
+          <li><a href="#experiences" data-i18n="nav_experiences">Expériences</a></li>
+          <li><a href="#localisation" data-i18n="nav_location">Localisation</a></li>
+          <li><a href="#offres" data-i18n="nav_offers">Offres</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="#galerie" data-i18n="nav_gallery">Galerie</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-cta" onclick="scrollToBooking()" data-i18n="check_availability">
+          Vérifier la disponibilité
+        </button>
+        <div class="lang-switch">
+          <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+          <button id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#services" onclick="toggleMobileMenu()">Services</a></li>
+        <li><a href="#gastronomie" onclick="toggleMobileMenu()">Gastronomie</a></li>
+        <li><a href="#chambres" onclick="toggleMobileMenu()">Chambres</a></li>
+        <li><a href="#experiences" onclick="toggleMobileMenu()">Expériences</a></li>
+        <li><a href="#localisation" onclick="toggleMobileMenu()">Localisation</a></li>
+        <li><a href="#offres" onclick="toggleMobileMenu()">Offres</a></li>
+        <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+        <li><a href="#galerie" onclick="toggleMobileMenu()">Galerie</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER -->
+  <section class="hero" id="accueil" style="padding:0;">
+    <div class="slide active" style="background-image: linear-gradient(135deg, #003554, #0a6c74);">
+      <div class="slide-content">
+        <span class="slide-tag">Mondoukou Resort ★★★★</span>
+        <h2>Alliance parfaite entre sport et détente au bord de l'océan</h2>
+        <p>Un cadre paradisiaque à Grand Bassam, Mondoukou, entre lagune et plages dorées.</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: linear-gradient(135deg, #0d3b66, #1d7874);">
+      <div class="slide-content">
+        <span class="slide-tag">Séjour & Évasion</span>
+        <h2>Rêvez, planifiez, voyagez</h2>
+        <p>Des services d'exception et des jardins tropicaux pour un séjour inoubliable en famille ou en couple.</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image: linear-gradient(135deg, #1b4332, #004e7c);">
+      <div class="slide-content">
+        <span class="slide-tag">Confort & Élégance</span>
+        <h2>315 chambres spacieuses et lumineuses</h2>
+        <p>Architecture de charme, piscines extérieures, gastronomie raffinée et animations quotidiennes.</p>
+      </div>
+    </div>
+
+    <div class="hero-controls">
+      <button class="dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+      <button class="dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+      <button class="dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- BOOKING BAR -->
+  <div class="booking-wrapper" id="bookingBar">
+    <form class="booking-bar" onsubmit="handleBooking(event)">
+      <div class="booking-field">
+        <label for="checkin">Arrivée</label>
+        <input type="date" id="checkin" required />
+      </div>
+      <div class="booking-field">
+        <label for="checkout">Départ</label>
+        <input type="date" id="checkout" required />
+      </div>
+      <div class="booking-field">
+        <label for="guests">Voyageurs</label>
+        <select id="guests">
+          <option value="2 Adultes, 0 Enfant">2 Adultes, 0 Enfant</option>
+          <option value="2 Adultes, 1 Enfant">2 Adultes, 1 Enfant</option>
+          <option value="2 Adultes, 2 Enfants">2 Adultes, 2 Enfants</option>
+          <option value="1 Adulte">1 Adulte</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label for="promo">Code Promo (optionnel)</label>
+        <input type="text" id="promo" placeholder="Ex: MONDOUKOU20" />
+      </div>
+      <button type="submit" class="booking-submit">Rechercher</button>
+    </form>
+  </div>
+
+  <!-- PRÉSENTATION & GARANTIES -->
+  <section>
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <span class="section-subtitle">Bienvenue à Grand Bassam, Mondoukou</span>
+          <h2>Mondoukou Resort**** ~ Votre hôtel 4 étoiles familial</h2>
+          <p>
+            Plongez dans une expérience inoubliable au <strong>Mondoukou Resort</strong>, un établissement 4 étoiles niché dans un environnement privilégié à <strong>Grand Bassam, Mondoukou</strong>, entre la lagune paisible et l'océan Atlantique.
+          </p>
+          <p>
+            Avec ses <strong>315 chambres</strong> conçues pour un confort absolu, notre complexe marie élégance architecturale, vastes jardins tropicaux, piscines extérieures avec bassin dédié aux enfants, et espaces consacrés aux sports et aux spectacles en direct.
+          </p>
+          <p>
+            Que vous recherchiez une escapade romantique, des vacances en famille avec mini-club ou un séminaire professionnel, notre équipe vous accueille 24h/24 au meilleur tarif garanti.
+          </p>
+        </div>
+
+        <div class="guarantees-card">
+          <h3>Avantages de la réservation directe</h3>
+          <div class="guarantee-item">
+            <div class="guarantee-icon">✓</div>
+            <div>
+              <strong>Meilleur tarif garanti en ligne</strong>
+              <p style="font-size:0.9rem; color:var(--text-muted);">Vous ne trouverez pas de tarif plus avantageux sur aucun autre site.</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-icon">✓</div>
+            <div>
+              <strong>Réservation directe, sans intermédiaire</strong>
+              <p style="font-size:0.9rem; color:var(--text-muted);">Confirmation immédiate et contact direct avec notre réception.</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-icon">✓</div>
+            <div>
+              <strong>Assistance disponible 24h/24 et 7j/7</strong>
+              <p style="font-size:0.9rem; color:var(--text-muted);">Une équipe dédiée à votre écoute toute l'année.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAMBRES -->
+  <section id="chambres" class="bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Hébergement</span>
+        <h2>Chambres au Mondoukou Resort</h2>
+        <p>Découvrez le confort et le raffinement de nos 315 chambres, de la chambre double cosy aux suites familiales spacieuses avec terrasse.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #1d3557, #457b9d);">
+            <span class="card-badge">Dès 56 € / nuit</span>
+          </div>
+          <div class="card-body">
+            <h4>Chambre Double Standard</h4>
+            <p>Lumineuse et accueillante, équipée d'un balcon privé avec vue sur les jardins, climatisation, Wi-Fi haut débit et salle de bain complète.</p>
+            <div class="card-meta">
+              <span>👤 2 pers.</span>
+              <span>📐 28 m²</span>
+              <span>🌿 Vue Jardin</span>
+            </div>
+            <button class="btn-outline" onclick="openRoomModal('Chambre Double Standard', '56 €')">Réserver cette chambre</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #005f73, #0a9396);">
+            <span class="card-badge">Dès 74 € / nuit</span>
+          </div>
+          <div class="card-body">
+            <h4>Chambre Supérieure Vue Piscine</h4>
+            <p>Profitez d'une terrasse aménagée surplombant nos piscines extérieures, d'une literie king-size et d'un espace salon confortable.</p>
+            <div class="card-meta">
+              <span>👤 2-3 pers.</span>
+              <span>📐 34 m²</span>
+              <span>🏊 Vue Piscine</span>
+            </div>
+            <button class="btn-outline" onclick="openRoomModal('Chambre Supérieure Vue Piscine', '74 €')">Réserver cette chambre</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #2b2d42, #8d99ae);">
+            <span class="card-badge">Dès 95 € / nuit</span>
+          </div>
+          <div class="card-body">
+            <h4>Chambre Familiale</h4>
+            <p>Idéale pour les familles, composée de deux espaces communicants permettant à parents et enfants de profiter d'une intimité totale.</p>
+            <div class="card-meta">
+              <span>👤 4 pers.</span>
+              <span>📐 46 m²</span>
+              <span>👨‍👩‍👧‍👦 Famille</span>
+            </div>
+            <button class="btn-outline" onclick="openRoomModal('Chambre Familiale', '95 €')">Réserver cette chambre</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background: linear-gradient(135deg, #7f5539, #b08968);">
+            <span class="card-badge">Dès 125 € / nuit</span>
+          </div>
+          <div class="card-body">
+            <h4>Junior Suite Mondoukou</h4>
+            <p>Notre catégorie signature offrant un salon séparé, une grande terrasse panoramique et des attentions VIP dès votre arrivée.</p>
+            <div class="card-meta">
+              <span>👤 2-4 pers.</span>
+              <span>📐 55 m²</span>
+              <span>⭐ VIP</span>
+            </div>
+            <button class="btn-outline" onclick="openRoomModal('Junior Suite Mondoukou', '125 €')">Réserver cette chambre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFRES -->
+  <section id="offres">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Promotions</span>
+        <h2>Offres exclusives au Mondoukou Resort</h2>
+        <p>Profitez de nos tarifs préférentiels et forfaits spéciaux conçus pour rendre votre séjour à Grand Bassam inoubliable.</p>
+      </div>
+
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));">
+        <div class="offer-card">
+          <div class="offer-img" style="background: linear-gradient(135deg, #003554, #0077b6);">
+            <div class="offer-price-tag">
+              <small>À partir de</small>
+              <strong>59 €</strong>
+              <small>taxes incluses</small>
+            </div>
+          </div>
+          <div class="offer-content">
+            <div>
+              <h4>Réservez à l'avance et obtenez jusqu'à -20 %</h4>
+              <p>Anticipez vos vacances à Mondoukou et profitez du soleil, de la plage et de nos installations sportives à tarif réduit.</p>
+            </div>
+            <button class="btn-cta" onclick="openRoomModal('Offre Early Booking (-20%)', '59 €')">Profiter de l'offre</button>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-img" style="background: linear-gradient(135deg, #3a5a40, #588157);">
+            <div class="offer-price-tag">
+              <small>À partir de</small>
+              <strong>56 €</strong>
+              <small>taxes incluses</small>
+            </div>
+          </div>
+          <div class="offer-content">
+            <div>
+              <h4>Offre Pré-paiement — Économisez jusqu'à 20 % !</h4>
+              <p>Bénéficiez d'une remise immédiate exclusive sur votre séjour en réglant votre réservation en ligne au moment de la confirmation.</p>
+            </div>
+            <button class="btn-cta" onclick="openRoomModal('Offre Pré-paiement (-20%)', '56 €')">Profiter de l'offre</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES, GASTRONOMIE & EXPÉRIENCES -->
+  <section id="services" class="bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Installations & Loisirs</span>
+        <h2>Services, Gastronomie & Expériences</h2>
+        <p>Notre réception est ouverte 24h/24 pour garantir un séjour fluide à toute la famille.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-body">
+            <h4>🏊 Piscines & Solarium</h4>
+            <p>Piscines extérieures entourées de jardins tropicaux, bassin sécurisé pour enfants et terrasse solarium équipée de transats confortables.</p>
+          </div>
+        </div>
+
+        <div class="card" id="gastronomie">
+          <div class="card-body">
+            <h4>🍽️ Gastronomie & Restaurants</h4>
+            <p>Nos restaurants proposent une cuisine locale ivoirienne et internationale préparée par nos chefs avec des produits frais de saison, accompagnée de bars lounge.</p>
+          </div>
+        </div>
+
+        <div class="card" id="experiences">
+          <div class="card-body">
+            <h4>🎭 Expériences, Sports & Mini-Club</h4>
+            <p>Spectacles quotidiens, musique live en soirée, activités nautiques entre lagune et océan, terrains multisports et club enfants encadré.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">En images</span>
+        <h3>Galerie : Découvrez notre complexe à Mondoukou</h3>
+        <p>Explorez l'atmosphère unique du Mondoukou Resort entre lagune, plage et jardins verdoyants.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" style="background: linear-gradient(135deg, #004e7c, #0096c7);">
+          <div class="gallery-caption">Piscine Principale & Jardins</div>
+        </div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #1b4332, #40916c);">
+          <div class="gallery-caption">Allées Tropicales & Détente</div>
+        </div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #7f4f24, #b6ad90);">
+          <div class="gallery-caption">Suites & Chambres Famille</div>
+        </div>
+        <div class="gallery-item" style="background: linear-gradient(135deg, #023e8a, #48cae4);">
+          <div class="gallery-caption">Plage & Lagune de Mondoukou</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALISATION & CONTACT -->
+  <section id="localisation" class="bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Nous trouver & Nous écrire</span>
+        <h2>Localisation & Contact</h2>
+        <p>Notre équipe commerciale et notre réception sont à votre entière disposition.</p>
+      </div>
+
+      <div class="split-section" id="contact">
+        <div class="info-box">
+          <h3>Coordonnées officielles</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="icon">📞</span>
+              <div>
+                <strong>Réception :</strong><br />
+                <a href="tel:0701777701">0701777701</a>
+              </div>
+            </li>
+            <li>
+              <span class="icon">💼</span>
+              <div>
+                <strong>Service Commercial :</strong><br />
+                <a href="tel:0711111190">0711111190</a>
+              </div>
+            </li>
+            <li>
+              <span class="icon">✉️</span>
+              <div>
+                <strong>Réception (E-mail) :</strong><br />
+                <a href="mailto:Info@Mondoukouresort.Com">Info@Mondoukouresort.Com</a>
+              </div>
+            </li>
+            <li>
+              <span class="icon">📍</span>
+              <div>
+                <strong>Localisation :</strong><br />
+                <span>Grand Bassam, Mondoukou</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Envoyer un message</h3>
+          <form class="contact-form" onsubmit="handleContact(event)">
+            <input type="text" placeholder="Votre nom complet" required />
+            <input type="email" placeholder="Votre adresse e-mail" required />
+            <input type="tel" placeholder="Votre numéro de téléphone" />
+            <textarea rows="4" placeholder="Votre demande (séjour, événement, groupe...)" required></textarea>
+            <button type="submit" class="btn-cta">Envoyer la demande</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <h3>NEWSLETTER</h3>
+      <p>Inscrivez-vous pour recevoir en avant-première les offres exclusives de Mondoukou Resort.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="Entrez votre adresse e-mail..." required />
+        <button type="submit" class="btn-cta">S'inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/Capture d'écran 2026-11-19 103046.png" alt="Logo Mondoukou Resort" class="footer-logo" />
+          <h4>Mondoukou Resort ★★★★</h4>
+          <p>Grand Bassam, Mondoukou</p>
+          <p style="margin-top:8px;">Réception : 0701777701 | Service Commercial : 0711111190</p>
+          <p>E-mail : Info@Mondoukouresort.Com</p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gastronomie">Gastronomie</a></li>
+            <li><a href="#chambres">Chambres</a></li>
+            <li><a href="#experiences">Expériences</a></li>
+            <li><a href="#offres">Offres</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Informations légales</h5>
+          <ul>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#localisation">Localisation</a></li>
+            <li><a href="#accueil">Politique de confidentialité</a></li>
+            <li><a href="#accueil">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Mondoukou Resort. Tous droits réservés.</span>
+        <span>Grand Bassam, Mondoukou • Réservations directes 24h/24</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE CONFIRMATION -->
+  <div class="modal-backdrop" id="infoModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h3 id="modalTitle" style="color:var(--primary); margin-bottom:12px;">Confirmation</h3>
+      <p id="modalMessage" style="color:var(--text-muted); margin-bottom:20px;"></p>
+      <button class="btn-cta" style="width:100%;" onclick="closeModal()">Fermer</button>
+    </div>
+  </div>
+
+  <script>
+    // Initialisation des dates par défaut dans le moteur de réservation
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const nextWeek = new Date(today);
+    nextWeek.setDate(nextWeek.getDate() + 4);
+
+    document.getElementById("checkin").value = tomorrow.toISOString().split("T")[0];
+    document.getElementById("checkout").value = nextWeek.toISOString().split("T")[0];
+
+    // Carrousel Hero
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove("active");
+      dots[currentSlide].classList.remove("active");
+      currentSlide = index;
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    }
+
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % slides.length);
+    }, 5500);
+
+    // Menu mobile
+    function toggleMobileMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+    }
+
+    function scrollToBooking() {
+      document.getElementById("bookingBar").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Modale
+    function showModal(title, message) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalMessage").textContent = message;
+      document.getElementById("infoModal").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("infoModal").classList.remove("open");
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const guests = document.getElementById("guests").value;
+      showModal(
+        "Disponibilité confirmée — Mondoukou Resort",
+        `Des chambres sont disponibles du ${checkin} au ${checkout} (${guests}). Contactez la réception au 0701777701 ou par e-mail à Info@Mondoukouresort.Com pour finaliser votre réservation au meilleur tarif.`
+      );
+    }
+
+    function openRoomModal(roomName, price) {
+      showModal(
+        roomName,
+        `Tarif préférentiel à partir de ${price} / nuit (taxes incluses). Pour réserver immédiatement, appelez notre réception au 0701777701 ou le service commercial au 0711111190.`
+      );
+    }
+
+    function handleContact(e) {
+      e.preventDefault();
+      showModal(
+        "Message envoyé",
+        "Merci d'avoir contacté Mondoukou Resort (Grand Bassam, Mondoukou). Notre équipe vous répondra très rapidement."
+      );
+      e.target.reset();
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showModal(
+        "Inscription confirmée",
+        "Vous êtes bien inscrit à la newsletter officielle de Mondoukou Resort."
+      );
+      e.target.reset();
+    }
+
+    // Sélecteur de langue FR / EN
+    const translations = {
+      fr: {
+        nav_services: "Services",
+        nav_gastronomy: "Gastronomie",
+        nav_rooms: "Chambres",
+        nav_experiences: "Expériences",
+        nav_location: "Localisation",
+        nav_offers: "Offres",
+        nav_contact: "Contact",
+        nav_gallery: "Galerie",
+        check_availability: "Vérifier la disponibilité"
+      },
+      en: {
+        nav_services: "Services",
+        nav_gastronomy: "Gastronomy",
+        nav_rooms: "Rooms",
+        nav_experiences: "Experiences",
+        nav_location: "Location",
+        nav_offers: "Offers",
+        nav_contact: "Contact",
+        nav_gallery: "Gallery",
+        check_availability: "Check availability"
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("btn-fr").classList.toggle("active", lang === "fr");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+  </script>
+</body>
+</html>
